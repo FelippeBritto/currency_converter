@@ -14,18 +14,14 @@ export class CardCurrencyComponent implements OnInit {
   @Input() isLoading: boolean;
   @Input() errorOccurred: boolean = false;
 
-  @Output() onRetry: EventEmitter<boolean>;
+  @Output() onRetry: EventEmitter<void> = new EventEmitter<void>();
 
   errorMessage: string = 'Algo deu errado';
 
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    // loading implementado somente visual
-    this.isLoading = true;
-    setTimeout(() => {
-      this.isLoading = false;
-    }, 2000);
+    this.simulateError();
   }
 
   sanitizePath(path: string): SafeResourceUrl {
@@ -51,6 +47,11 @@ export class CardCurrencyComponent implements OnInit {
   }
 
   handleOnRetry() {
-    this.onRetry.emit(true);
+    this.errorOccurred = false;
+    this.onRetry.emit();
+  }
+
+  simulateError() {
+    this.errorOccurred = true;
   }
 }

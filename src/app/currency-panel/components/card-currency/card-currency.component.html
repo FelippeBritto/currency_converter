@@ -2,21 +2,24 @@
   <div class="card-header">
     <h1 class="card-title">{{ currencyName || "Título" | currencyName }}</h1>
   </div>
-  <ng-container class="loading-content" *ngIf="isLoading; else contentLoaded">
-    <div class="card-content-loading">
+
+  <ng-container
+    class="alt-content"
+    *ngIf="isLoading || errorOccurred; else contentLoaded"
+  >
+    <div *ngIf="isLoading" class="card-content-loading">
       <img
         class="loader"
         [src]="sanitizePath('../../../../assets/loader.svg')"
         alt=""
       />
     </div>
-  </ng-container>
-  <!-- <ng-template #errorTemplate>
-    <div class="card-error-message">
+    <div *ngIf="!isLoading && errorOccurred" class="card-error-message">
       <h2>{{ errorMessage }}</h2>
       <button class="btn-retry" (click)="handleOnRetry()">Retry</button>
     </div>
-  </ng-template> -->
+  </ng-container>
+
   <ng-template #contentLoaded>
     <div class="card-content">
       <P class="currency-value" [ngClass]="setTextColor(currencyValue)"
