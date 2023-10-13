@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    <h1 class="card-title">{{ currencyName || "Título" | currencyName }}</h1>
+  </div>
+  <ng-container class="loading-content" *ngIf="isLoading; else contentLoaded">
+    <div class="card-content-loading">
+      <img
+        class="loader"
+        [src]="sanitizePath('../../../../assets/loader.svg')"
+        alt=""
+      />
+    </div>
+  </ng-container>
+  <!-- <ng-template #errorTemplate>
+    <div class="card-error-message">
+      <h2>{{ errorMessage }}</h2>
+      <button class="btn-retry" (click)="handleOnRetry()">Retry</button>
+    </div>
+  </ng-template> -->
+  <ng-template #contentLoaded>
+    <div class="card-content">
+      <P class="currency-value" [ngClass]="setTextColor(currencyValue)"
+        >R$ {{ currencyValue || 0.0 | formatCurrencyValue }}
+      </P>
+    </div>
+    <div class="card-footer">
+      <div class="container-left">
+        <p class="footer-label">Variação (%)</p>
+        <p class="footer-value">{{ valueVariation || "0,00" }}</p>
+      </div>
+      <div class="container-right">
+        <p class="footer-label">Atualizado</p>
+        <p class="footer-value">
+          {{ lastUpdate || "00:00:00" | date : "HH:mm:ss" }}
+        </p>
+      </div>
+    </div>
+  </ng-template>
+</div>

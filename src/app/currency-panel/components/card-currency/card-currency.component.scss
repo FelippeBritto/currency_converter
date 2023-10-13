@@ -1,0 +1,109 @@
+@use "src/assets/styles/colors.scss" as colors;
+
+.card {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px 2px colors.$gray-0;
+  background-color: #ffffff;
+
+  .red-text {
+    color: colors.$red;
+  }
+
+  .green-text {
+    color: colors.$green;
+  }
+
+  .blue-text {
+    color: colors.$blue;
+  }
+
+  .card-header {
+    height: 119px;
+    background-color: colors.$gray-base;
+    text-align: center;
+
+    .card-title {
+      padding-top: 29px;
+      color: colors.$gray-2;
+    }
+  }
+
+  .card-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .currency-value {
+      font-size: 64px;
+      font-weight: 500;
+    }
+  }
+
+  .card-content-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+
+    @media (max-width: 767px) {
+      height: 39vh;
+    }
+
+    .loader {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .card-error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+    color: colors.$gray-2;
+
+    @media (max-width: 767px) {
+      height: 39vh;
+    }
+
+    .btn-retry {
+      width: 25vh;
+      height: 7vh;
+      font-size: 18px;
+      font-weight: 600;
+      color: colors.$gray-2;
+      border: none;
+      border-radius: 10px;
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    border-top: 1px solid colors.$gray-0;
+
+    .container-left {
+      width: 50%;
+      text-align: center;
+      border-right: 1px solid colors.$gray-0;
+    }
+    .container-right {
+      width: 50%;
+      text-align: center;
+    }
+
+    .footer-label {
+      color: colors.$gray-1;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 27px;
+    }
+    .footer-value {
+      color: colors.$gray-2;
+      font-size: 24px;
+      font-weight: 600;
+      line-height: 36px;
+    }
+  }
+}
