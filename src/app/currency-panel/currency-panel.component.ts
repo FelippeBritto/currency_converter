@@ -39,7 +39,6 @@ export class CurrencyPanelComponent implements OnInit, OnDestroy {
   }
 
   handleRetry() {
-    console.log('new request');
     this.getCurrencies();
   }
 
