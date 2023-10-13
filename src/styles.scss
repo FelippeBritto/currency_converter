@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@use "src/assets/styles/colors.scss" as colors;
+
+header {
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: colors.$gray-base;
+
+  // Typography
+  h1,
+  h2,
+  h3,
+  p,
+  button {
+    font-family: Poppins, Calibri, sans-serif;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 26px;
+    font-weight: 400;
+  }
+
+  @media (max-width: 767px) {
+    h1 {
+      font-size: 30px;
+    }
+  }
+}
