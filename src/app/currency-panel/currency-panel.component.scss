@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  height: 85vh;
+
+  .card-container {
+    min-width: 55vh;
+    @media (min-width: 1000px) {
+      margin-top: 15vh;
+    }
+
+    @media (max-width: 767px) {
+      min-width: 43vh;
+
+      &:first-child {
+        margin-top: 15vh;
+      }
+
+      &:last-child {
+        padding-bottom: 10vh;
+      }
+    }
+  }
+}

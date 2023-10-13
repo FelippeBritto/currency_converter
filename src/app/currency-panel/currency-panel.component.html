@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="card-container" *ngFor="let currency of cachedCurrencies">
+    <app-card-currency
+      [currencyName]="currency.name"
+      [currencyValue]="currency.high"
+      [valueVariation]="currency.pctChange"
+      [lastUpdate]="currency.create_date"
+    ></app-card-currency>
+  </div>
+</div>
