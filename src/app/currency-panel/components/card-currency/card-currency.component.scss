@@ -76,6 +76,13 @@
       color: colors.$gray-2;
       border: none;
       border-radius: 10px;
+      cursor: pointer;
+      transition: opacity transform 0.2s;
+
+      &:active {
+        transform: scale(0.95);
+        opacity: 80%;
+      }
     }
   }
 
