@@ -4,7 +4,7 @@ Projeto desenvolvido com Angular 16
 
 Consumindo a API `https://docs.awesomeapi.com.br/api-de-moedas`
 
-Acesse o projeto em `https://matheus-currency-converter.netlify.app/`
+Acesse o projeto <a href="https://matheus-currency-converter.netlify.app/">Aqui</a>
 
 ## :pushpin: Executando o projeto
 
