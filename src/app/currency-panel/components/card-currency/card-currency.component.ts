@@ -21,6 +21,7 @@ export class CardCurrencyComponent implements OnInit {
   constructor(private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
+    //comentar essa linha para parar os erros
     this.simulateError();
   }
 
