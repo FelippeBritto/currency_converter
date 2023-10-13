@@ -11,11 +11,18 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 export class CurrencyPanelComponent implements OnInit, OnDestroy {
   private unsubscribe = new Subject<void>();
 
+  loading: boolean = false;
   cachedCurrencies: ICurrency[] | null;
 
   constructor(private service: CurrenciesService) {}
 
   ngOnInit(): void {
+    this.getCurrencies();
+  }
+
+  getCurrencies() {
+    //Loading simulado por ser uma requisição muito rápida
+    this.simulateLoading();
     this.service.cachedData$
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((data) => {
@@ -29,5 +36,17 @@ export class CurrencyPanelComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.unsubscribe.next();
     this.unsubscribe.complete();
+  }
+
+  handleRetry() {
+    console.log('new request');
+    this.getCurrencies();
+  }
+
+  simulateLoading() {
+    this.loading = true;
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000);
   }
 }

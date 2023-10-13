@@ -5,6 +5,8 @@
       [currencyValue]="currency.high"
       [valueVariation]="currency.pctChange"
       [lastUpdate]="currency.create_date"
+      [isLoading]="loading"
+      (onRetry)="handleRetry()"
     ></app-card-currency>
   </div>
 </div>
